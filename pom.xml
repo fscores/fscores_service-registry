@@ -13,6 +13,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>service-registry</name>
 	<description>service-registry</description>
+    <packaging>jar</packaging>
 	<url/>
 	<licenses>
 		<license/>
@@ -63,6 +64,7 @@
 	</dependencyManagement>
 
 	<build>
+        <finalName>service-registry</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
