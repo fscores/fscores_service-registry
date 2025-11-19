@@ -7,7 +7,7 @@ COPY src ./src
 
 RUN mvn clean package -DskipTests
 
-FROM openjdk:21-jdk-slim
+FROM amazoncorretto:21-alpine3.19-jdk
 
 # MAINTAINER instruction is deprecated in favor of using label
 # MAINTAINER eazybytes.com
@@ -17,7 +17,7 @@ LABEL "org.opencontainers.image.authors"="eazybytes.com"
 WORKDIR /app
 
 # Install curl
-RUN apt-get update && apt-get install -y curl
+RUN apk update && apk add curl
 
 # Copy the built JAR file from the 'build' stage to the final image
 COPY --from=build /app/target/service-registry.jar .
